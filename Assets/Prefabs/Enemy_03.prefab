@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7954884086233833582}
   m_Layer: 7
   m_Name: Weapon
-  m_TagString: Untagged
+  m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
