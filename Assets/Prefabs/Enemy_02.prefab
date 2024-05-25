@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4744101050200583667}
   - component: {fileID: 8660984673819414681}
+  - component: {fileID: 683831379544074827}
   - component: {fileID: 3379288206170825958}
   - component: {fileID: 3949588238604672499}
   - component: {fileID: 4199957507108335958}
@@ -88,6 +89,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &683831379544074827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7516641018226831881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a5042647462514e86416f1f593ba94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movespeed: 1.5
+  EnemyDistance: 1.4
 --- !u!61 &3379288206170825958
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -101,7 +116,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.4378842, y: -0.9396416}
+  m_Offset: {x: 0.16664004, y: -0.9396416}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -112,7 +127,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2517097, y: 1.974977}
+  m_Size: {x: 1.4127519, y: 1.974977}
   m_EdgeRadius: 0
 --- !u!50 &3949588238604672499
 Rigidbody2D:
