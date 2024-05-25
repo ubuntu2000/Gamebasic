@@ -58,10 +58,9 @@ namespace GameBasic
              m_IsDead = true;
              m_anim.SetTrigger(Const.DEAD_ANIM);
              m_rb.velocity = Vector2.zero;
-            gameObject.layer = LayerMask.NameToLayer(Const.DEAD_ANIM);
-          //if (m_gm)
-            
-              //m_gm.Score++;
+             gameObject.layer = LayerMask.NameToLayer(Const.DEAD_ANIM);
+               if (m_gm)
+                    m_gm.Score++;
             
                
 
