@@ -28,5 +28,6 @@ namespace GameBasic
         public const string MUSIC_VOL_PREF = "MusicVol";
         public const string SFX_VOL_PREF = "SFXVol";
 
+        public const string GAMEPLAY_SCENE = "GamePlay";
     }
 }

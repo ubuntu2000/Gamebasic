@@ -1,21 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 namespace GameBasic
 {
-    public class PauseDialog : MonoBehaviour
+    public class PauseDialog : Dialog
     {
-        // Start is called before the first frame update
-        void Start()
+        public override void Show(bool isShow)
         {
+            Time.timeScale = 0f;
+            base.Show(isShow);
 
         }
-
-        // Update is called once per frame
-        void Update()
+        public void Resume()
         {
+            Close();
+            
+        }
+        public void RePlay()
+        {
+            Close();
+            SceneManager.LoadScene(Const.GAMEPLAY_SCENE);
+        }
 
+        public override void Close()
+        {
+            Time.timeScale = 1f;
+            base.Close();
         }
     }
 }

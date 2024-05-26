@@ -36,14 +36,17 @@ namespace GameBasic
             return guiMng == null;
         }
 
-
-        // Update is called once per frame
-        void Update()
+        public void GameOver()
         {
+            if (m_IsGameOver) return;
 
-
-
+            m_IsGameOver = true;
+            Pref.bestScore = m_score;
+            if (guiMng.GameOverDialog)
+                guiMng.GameOverDialog.Show(true);
+                
         }
+     
         IEnumerator SpawnEnemy()
         {
             while(!m_IsGameOver)

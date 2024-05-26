@@ -10,6 +10,7 @@ namespace GameBasic
     {
 
         Animator m_anim;
+        GameManager m_gm;
 
         public float Time_RateAttack;
         float m_CurTime_RateAttack;
@@ -20,6 +21,7 @@ namespace GameBasic
         {
             m_anim = GetComponent<Animator>();
             m_CurTime_RateAttack = Time_RateAttack;
+            m_gm = FindObjectOfType<GameManager>();
         }
         // Start is called before the first frame update
         void Start()
@@ -30,7 +32,7 @@ namespace GameBasic
 
         public bool  IsComponentsNull()
         {
-            return m_anim == null;
+            return m_anim == null || m_gm == null;
         }
 
 
@@ -74,6 +76,7 @@ namespace GameBasic
                 m_anim.SetTrigger(Const.DEAD_ANIM);
                 m_IsDead = true;
                 gameObject.layer = LayerMask.NameToLayer(Const.DEAD_LAYER);
+                m_gm.GameOver();
             }
         }
     }
