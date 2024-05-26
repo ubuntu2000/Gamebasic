@@ -7,10 +7,11 @@ namespace GameBasic
 {
 
 
-    public class GameManager : MonoBehaviour
+    public class GameManager : MonoBehaviour, IComponentCheck
     {
        public float m_spawnTime;
        public Enemy[] enemyPrefabs;
+        public GUIManager guiMng;
        private bool m_IsGameOver;
        private int m_score;
 
@@ -19,8 +20,22 @@ namespace GameBasic
         // Start is called before the first frame update
         void Start()
         {
-            StartCoroutine(SpawnEnemy());
+            
+            if (IsComponentsNull()) return;
+            guiMng.ShowGameGUI(false);
+            guiMng.UpdateMainCoin();
         }
+        public void PlayGameButton()
+        {
+            StartCoroutine(SpawnEnemy());
+            guiMng.ShowGameGUI(true);
+            guiMng.UpdateGamePlayCoin();
+        }
+        public bool IsComponentsNull()
+        {
+            return guiMng == null;
+        }
+
 
         // Update is called once per frame
         void Update()

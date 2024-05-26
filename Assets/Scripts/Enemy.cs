@@ -13,6 +13,8 @@ namespace GameBasic
         Player m_player;
         public float movespeed;
         public float EnemyDistance;
+        public int minCoinBonus;
+        public int maxCoinBonus;
         private bool m_IsDead;
 
         private GameManager m_gm;
@@ -32,7 +34,7 @@ namespace GameBasic
 
         public bool IsComponentsNull()
         {
-            return m_anim == null || m_player == null || m_rb == null;
+            return m_anim == null || m_player == null || m_rb == null || m_gm == null;
         }
 
 
@@ -59,10 +61,13 @@ namespace GameBasic
              m_anim.SetTrigger(Const.DEAD_ANIM);
              m_rb.velocity = Vector2.zero;
              gameObject.layer = LayerMask.NameToLayer(Const.DEAD_ANIM);
-               if (m_gm)
-                    m_gm.Score++;
-            
-               
+             m_gm.Score++;
+            int coinsbonus = Random.Range(minCoinBonus, maxCoinBonus);
+            Pref.Coins += coinsbonus;
+
+            if (m_gm.guiMng)
+                m_gm.guiMng.UpdateGamePlayCoin();
+
 
             Destroy(gameObject, 2f);
         }

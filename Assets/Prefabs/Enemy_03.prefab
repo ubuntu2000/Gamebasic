@@ -173,6 +173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movespeed: 1.5
   EnemyDistance: 1
+  minCoinBonus: 12
+  maxCoinBonus: 15
 --- !u!95 &2708644060419314103
 Animator:
   serializedVersion: 5

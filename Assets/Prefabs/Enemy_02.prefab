@@ -103,6 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movespeed: 1.5
   EnemyDistance: 1.4
+  minCoinBonus: 9
+  maxCoinBonus: 15
 --- !u!61 &3379288206170825958
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -124,6 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movespeed: 1.2
   EnemyDistance: 1
+  minCoinBonus: 5
+  maxCoinBonus: 8
 --- !u!50 &693056825111932055
 Rigidbody2D:
   serializedVersion: 4

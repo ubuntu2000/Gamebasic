@@ -24,7 +24,7 @@ namespace GameBasic
         public const string BEST_SCORE_PREF = "BestScore";
         public const string PLAYER_PREFIX_PREF = "Player_";
         public const string CUR_PLAYER_ID_PREF = "CurPlayerID";
-        public const string COIN_PREF = "Coins";
+        public const string COINS_PREF = "Coins";
         public const string MUSIC_VOL_PREF = "MusicVol";
         public const string SFX_VOL_PREF = "SFXVol";
 

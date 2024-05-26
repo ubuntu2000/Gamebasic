@@ -24,10 +24,10 @@ namespace GameBasic
             set => PlayerPrefs.SetInt(Const.CUR_PLAYER_ID_PREF, value);
             get => PlayerPrefs.GetInt(Const.CUR_PLAYER_ID_PREF, 0);
         }
-        public static int Coin
+        public static int Coins
         {
-            set => PlayerPrefs.SetInt(Const.COIN_PREF, value);
-            get => PlayerPrefs.GetInt(Const.COIN_PREF, 0);
+            set => PlayerPrefs.SetInt(Const.COINS_PREF, value);
+            get => PlayerPrefs.GetInt(Const.COINS_PREF, 0);
         }
         public static float musVol
         {
