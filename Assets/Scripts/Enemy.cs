@@ -67,7 +67,8 @@ namespace GameBasic
 
             if (m_gm.guiMng)
                 m_gm.guiMng.UpdateGamePlayCoin();
-
+            if (m_gm.auCtr)
+                m_gm.auCtr.PlaySound(m_gm.auCtr.enemyDead);
 
             Destroy(gameObject, 2f);
         }

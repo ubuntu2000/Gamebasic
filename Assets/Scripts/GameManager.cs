@@ -12,7 +12,7 @@ namespace GameBasic
        public float m_spawnTime;
        public Enemy[] enemyPrefabs;
         public GUIManager guiMng;
-        // 
+        public AudioController auCtr;
         public ShopManager shopMng;
         private Player m_curPlayer;
        private bool m_IsGameOver;
@@ -30,15 +30,17 @@ namespace GameBasic
         }
         public bool IsComponentsNull()
         {
-            return guiMng == null || shopMng == null;
+            return guiMng == null || shopMng == null || auCtr == null ;
         }
 
         public void PlayGameButton()
         {
+            if (IsComponentsNull()) return;
             ActivePlayer();
             StartCoroutine(SpawnEnemy());
             guiMng.ShowGameGUI(true);
             guiMng.UpdateGamePlayCoin();
+            auCtr.PlayBgm();
         }
         
         public void ActivePlayer()
@@ -65,7 +67,7 @@ namespace GameBasic
             Pref.bestScore = m_score;
             if (guiMng.GameOverDialog)
                 guiMng.GameOverDialog.Show(true);
-                
+            auCtr.PlaySound(auCtr.gameOver);
         }
      
         IEnumerator SpawnEnemy()
