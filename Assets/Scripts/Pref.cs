@@ -32,12 +32,12 @@ namespace GameBasic
         public static float musVol
         {
             set => PlayerPrefs.SetFloat(Const.MUSIC_VOL_PREF, value);
-            get => PlayerPrefs.GetFloat(Const.MUSIC_VOL_PREF, 0);
+            get => PlayerPrefs.GetFloat(Const.MUSIC_VOL_PREF, 0.3f);
         }
         public static float sfxVol
         {
             set => PlayerPrefs.SetFloat(Const.SFX_VOL_PREF, value);
-            get => PlayerPrefs.GetFloat(Const.SFX_VOL_PREF, 0);
+            get => PlayerPrefs.GetFloat(Const.SFX_VOL_PREF, 1f);
         }
         public static void SetBool(string key, bool value)
         {

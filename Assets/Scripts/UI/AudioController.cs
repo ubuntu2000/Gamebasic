@@ -24,6 +24,17 @@ namespace GameBasic
         public AudioClip gameOver;
         public AudioClip[] bgms;
 
+        private void Start()
+        {
+            if (musicAus == null || SfxAus == null) return;
+            musicVol = Pref.musVol;
+            SfxVol = Pref.sfxVol;
+
+            musicAus.volume = musicVol;
+            SfxAus.volume = SfxVol;
+        }
+
+
 
         public void PlaySound(AudioClip [] sounds, AudioSource aus = null ) 
             /* PlaySound truyen 1 mang am thanh nhung ko truyen vao audio dieu khien (audioSound)
