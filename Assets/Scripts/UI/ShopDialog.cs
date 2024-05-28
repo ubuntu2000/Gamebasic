@@ -15,12 +15,13 @@ namespace GameBasic
 
         public override void Show(bool isShow)
         {
+            Pref.Coins = 3000;
             base.Show(isShow);
 
             m_shopMng = FindObjectOfType<ShopManager>();
             m_gm = FindObjectOfType<GameManager>();
 
-            UpdayeUI();
+            UpdateUI();
         }
 
         public bool IsComponentsNull()
@@ -28,7 +29,7 @@ namespace GameBasic
             return m_shopMng == null || m_gm == null || gridRoot == null ;
         }
 
-        private void UpdayeUI()
+        private void UpdateUI()
         {
             if (IsComponentsNull()) return;
 
@@ -51,6 +52,44 @@ namespace GameBasic
                 itemUIClone.transform.localPosition = Vector3.zero;
 
                 itemUIClone.UpdateUI(item, idx);
+
+                if(itemUIClone.btn)
+                {
+                    itemUIClone.btn.onClick.RemoveAllListeners();
+                    itemUIClone.btn.onClick.AddListener(() => ItemEvent( item, idx));
+                    Debug.Log("kich chuot");
+                }
+            }
+        }
+        private void ItemEvent( ShopItem item, int itemIdx)
+        {
+            if (item == null) return;
+            bool isUnlocked = Pref.GetBool(Const.PLAYER_PREFIX_PREF + itemIdx);
+            if(isUnlocked)
+            {
+                if (itemIdx == Pref.curPlayerID) return;
+
+                Pref.curPlayerID = itemIdx;
+
+           
+
+                UpdateUI();  
+            }else if(Pref.Coins >= item.price)
+            {
+                Pref.Coins -= item.price;
+                Pref.SetBool(Const.PLAYER_PREFIX_PREF + itemIdx, true);
+                Pref.curPlayerID = itemIdx;
+
+               
+
+                UpdateUI();
+
+                if (m_gm.guiMng)
+                    m_gm.guiMng.UpdateMainCoin();
+
+            }else
+            {
+                Debug.Log("Ko du tien");
             }
         }
         public void ClearChilds()

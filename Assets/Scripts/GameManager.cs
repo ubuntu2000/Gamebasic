@@ -12,6 +12,9 @@ namespace GameBasic
        public float m_spawnTime;
        public Enemy[] enemyPrefabs;
         public GUIManager guiMng;
+        // 
+        public ShopManager shopMng;
+        private Player m_curPlayer;
        private bool m_IsGameOver;
        private int m_score;
 
@@ -25,17 +28,35 @@ namespace GameBasic
             guiMng.ShowGameGUI(false);
             guiMng.UpdateMainCoin();
         }
+        public bool IsComponentsNull()
+        {
+            return guiMng == null || shopMng == null;
+        }
+
         public void PlayGameButton()
         {
+            ActivePlayer();
             StartCoroutine(SpawnEnemy());
             guiMng.ShowGameGUI(true);
             guiMng.UpdateGamePlayCoin();
         }
-        public bool IsComponentsNull()
+        
+        public void ActivePlayer()
         {
-            return guiMng == null;
-        }
+            if (IsComponentsNull()) return;
+            if (m_curPlayer)
+                Destroy(m_curPlayer.gameObject);
 
+            var shopItems = shopMng.items;
+
+            if (shopItems == null || shopItems.Length <= 0) return;
+
+            var newPlayerPb = shopItems[Pref.curPlayerID].playerPrefab;
+
+            if (newPlayerPb)
+                m_curPlayer = Instantiate(newPlayerPb, new Vector3(-7f, -1f, 0f), Quaternion.identity);
+
+        }
         public void GameOver()
         {
             if (m_IsGameOver) return;
